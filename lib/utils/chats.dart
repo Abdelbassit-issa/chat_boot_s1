@@ -20,17 +20,17 @@ List<Widget> chats = [
               padding: const EdgeInsets.all(5),
               child: Text(
                 'Dragon Fly',
-                style: TextStyle(fontSize: 18, color: Colors.blueGrey.shade900),
+                style: TextStyle(fontSize: 18, color: Colors.blueGrey.shade800),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(3),
               child: Row(
                 children: [
-                  Icon(Icons.date_range, size: 16, color: Colors.blueGrey[400]),
+                  Icon(Icons.date_range, size: 14, color: Colors.blueGrey[400]),
                   Text(
                     '${DateFormat('jm').format(DateTime.now())}:${DateFormat('yMMMEd').format(DateTime.now())}',
-                    style: TextStyle(fontSize: 12, color: Colors.blueGrey[400]),
+                    style: TextStyle(fontSize: 10, color: Colors.blueGrey[400]),
                   ),
                 ],
               ),
@@ -39,15 +39,18 @@ List<Widget> chats = [
         ),
         Expanded(
           child: Text(
+            
             chat_mass,
             style: TextStyle(
               fontSize: 12,
+              
+ 
               color: Colors.blueGrey,
               overflow: TextOverflow.ellipsis,
             ),
             textAlign: TextAlign.center,
             overflow: TextOverflow.fade,
-            maxLines: 2,
+            maxLines: 3,
           ),
         ),
 

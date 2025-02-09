@@ -10,6 +10,8 @@ class MainChatPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainChatPage> {
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,23 +19,48 @@ class _MainPageState extends State<MainChatPage> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(
-                height: 59,
-                child: Card(
-                  shape: BeveledRectangleBorder(
-                    // side: BorderSide(color: Colors.blueGrey.shade300,strokeAlign: 0.1),
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                  color: Colors.blueGrey.shade100,
-                  child: Row(
-                    children: [
-                      
-                      Expanded(
-                        child: TextFormField(
-
-                        )
-                      ),
-                    ],
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: SizedBox(
+                  height: 59,
+                  child: Card(
+                    shape: BeveledRectangleBorder(
+                      // side: BorderSide(color: Colors.blueGrey.shade300,strokeAlign: 0.1),
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                    color: Colors.blueGrey.shade100,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blueGrey.shade100,
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: TextFormField(
+                       
+                              cursorColor: Colors.blueGrey.shade600,
+                              cursorWidth: 5,
+                              cursorRadius: const Radius.circular(1),
+                              decoration: InputDecoration(
+                                hintStyle: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.blueGrey.shade600,
+                                ),
+                                hintText: 'Search',
+                                suffixIcon: Icon(
+                                  Icons.search,
+                                  color: Colors.blueGrey.shade600,
+                                  size: 21,
+                                ),
+                                border: InputBorder.none,
+                                contentPadding: const EdgeInsets.all(13),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
