@@ -1,5 +1,5 @@
 import 'package:chat_boot_s1/all_chats/view/main_page.dart';
-import 'package:chat_boot_s1/chat_box/view/main.dart';
+import 'package:chat_boot_s1/chat_box/view/chat_box_page.dart';
 import 'package:go_router/go_router.dart';
 
 GoRouter mainRouter(bool userLoggedIn) {

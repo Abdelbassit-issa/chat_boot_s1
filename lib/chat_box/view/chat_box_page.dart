@@ -12,6 +12,15 @@ class MainChatBoxPage extends StatefulWidget {
 class _MainChatBoxPageState extends State<MainChatBoxPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: SafeArea(child: Column(children: [
+        // Header
+        Row(children:[
+          Card(),
+          Cir()
+        ]),
+      ],)
+      )
+    );
   }
 }
