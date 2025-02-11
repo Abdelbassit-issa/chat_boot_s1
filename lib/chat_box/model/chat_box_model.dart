@@ -11,7 +11,7 @@ class ChatBoxModel {
   final String lastView;
   final String userID;
   final String chatID;
-  final Uint8List userImage;
+  final String userImage;
   final List<ChatStractur> masseges;
   ChatBoxModel({
     required this.userProfile,
@@ -29,7 +29,7 @@ class ChatBoxModel {
     String? lastView,
     String? userID,
     String? chatID,
-    Uint8List? userImage,
+    String? userImage,
     List<ChatStractur>? masseges,
   }) {
     return ChatBoxModel(
@@ -63,7 +63,7 @@ class ChatBoxModel {
       userID: map['userID'] as String,
       chatID: map['chatID'] as String,
       masseges: map['masseges'] as List<ChatStractur>,
-      userImage: map['userImage'] as Uint8List,
+      userImage: map['userImage'] as String,
     );
   }
 

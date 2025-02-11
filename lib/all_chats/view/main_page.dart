@@ -2,6 +2,7 @@ import 'package:chat_boot_s1/all_chats/model/chat_form_model.dart';
 import 'package:chat_boot_s1/utils/chats.dart';
 import 'package:chat_boot_s1/utils/shorts.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 class MainChatPage extends StatefulWidget {
@@ -107,103 +108,109 @@ class _MainPageState extends State<MainChatPage> {
 
                     itemBuilder: (context, index) {
                       final ChatFormModel chat = chats[index];
-                      return Card(
-                        shape: BeveledRectangleBorder(
-                          // side: BorderSide(color: Colors.blueGrey.shade300,strokeAlign: 0.1),
-                          borderRadius: BorderRadius.circular(3),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(5),
-                                  child: Text(
-                                    chat.senderName,
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      color: Colors.blueGrey.shade800,
+                      return GestureDetector(
+                        onTap: () {
+                          context.go('/per_to_per_chat');
+                        },
+                        child: Card(
+                          shape: BeveledRectangleBorder(
+                            // side: BorderSide(color: Colors.blueGrey.shade300,strokeAlign: 0.1),
+                            borderRadius: BorderRadius.circular(3),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(5),
+                                    child: Text(
+                                      chat.senderName,
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.blueGrey.shade800,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Card(
+                                  Card(
                                     shape: BeveledRectangleBorder(
                                       side: BorderSide(
                                         color: Colors.blueGrey.shade300,
-                                      
-                                        width: 0.5
+
+                                        width: 0.5,
                                       ),
                                       borderRadius: BorderRadius.circular(2),
                                     ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5),
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.date_range,
-                                          size: 14,
-                                          color: Colors.blueGrey[400],
-                                        ),
-                                        Text(
-                                          '${DateFormat('jm').format(DateTime.now())}:${DateFormat('yMMMEd').format(DateTime.now())}',
-                                          style: TextStyle(
-                                            fontSize: 10,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.date_range,
+                                            size: 14,
                                             color: Colors.blueGrey[400],
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Expanded(
-                              child: Text(
-                                chat.lastMass,
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.blueGrey,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                textAlign: TextAlign.center,
-                                overflow: TextOverflow.fade,
-                                maxLines: 3,
-                              ),
-                            ),
-
-                            Stack(
-                              children: [
-                                SizedBox(
-                                  width: 62,
-                                  height: 62,
-                                  child: Card(
-                                    shape: BeveledRectangleBorder(
-                                      side: BorderSide(
-                                        color: Colors.blueGrey.shade300,
-                                        strokeAlign: 0.1,
+                                          Text(
+                                            '${DateFormat('jm').format(DateTime.now())}:${DateFormat('yMMMEd').format(DateTime.now())}',
+                                            style: TextStyle(
+                                              fontSize: 10,
+                                              color: Colors.blueGrey[400],
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      borderRadius: BorderRadius.circular(2),
-                                    ),
-                                    child: Image.network(
-                                      fit: BoxFit.cover,
-                                      'https://images.freeimages.com/image/previews/10e/dragon-brand-kit-5690979.jpg?fmt=webp&w=500',
                                     ),
                                   ),
+                                ],
+                              ),
+                              Expanded(
+                                child: Text(
+                                  chat.lastMass,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.blueGrey,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.fade,
+                                  maxLines: 3,
                                 ),
-                               chat.isViewd
-                                    ?  Container()
-                                    : CircleAvatar(
-                                      radius: 6,
-                                      backgroundColor:
-                                          Colors.lightGreenAccent.shade700,
+                              ),
+
+                              Stack(
+                                children: [
+                                  SizedBox(
+                                    width: 62,
+                                    height: 62,
+                                    child: Card(
+                                      shape: BeveledRectangleBorder(
+                                        side: BorderSide(
+                                          color: Colors.blueGrey.shade300,
+                                          strokeAlign: 0.1,
+                                        ),
+                                        borderRadius: BorderRadius.circular(2),
+                                      ),
+                                      child: Image.network(
+                                        fit: BoxFit.cover,
+                                        'https://images.freeimages.com/image/previews/10e/dragon-brand-kit-5690979.jpg?fmt=webp&w=500',
+                                      ),
                                     ),
-                              ],
-                            ),
-                          ],
+                                  ),
+                                  chat.isViewd
+                                      ? Container()
+                                      : CircleAvatar(
+                                        radius: 6,
+                                        backgroundColor:
+                                            Colors.lightGreenAccent.shade700,
+                                      ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
