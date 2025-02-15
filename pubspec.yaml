@@ -18,6 +18,7 @@ dependencies:
   intl: ^0.20.2
   google_fonts: ^6.2.1
   uuid: ^4.5.1
+  file_picker: ^8.3.5
 fonts:
   - family: ReemKufiInk
     fonts:
